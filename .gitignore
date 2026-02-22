@@ -1,0 +1,16 @@
+# 민감한 정보 - 절대 git에 올리지 마세요
+.env
+
+# 텔레그램 세션 파일
+*.session
+*.session-journal
+
+# 파이썬 가상환경
+venv/
+
+# 파이썬 캐시
+__pycache__/
+*.pyc
+
+# nohup 로그
+nohup.out

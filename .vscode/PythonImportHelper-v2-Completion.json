@@ -1,0 +1,192 @@
+[
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "TelegramClient",
+        "importPath": "telethon.sync",
+        "description": "telethon.sync",
+        "isExtraImport": true,
+        "detail": "telethon.sync",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "asyncio",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "asyncio",
+        "description": "asyncio",
+        "detail": "asyncio",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "TelegramClient",
+        "importPath": "telethon",
+        "description": "telethon",
+        "isExtraImport": true,
+        "detail": "telethon",
+        "documentation": {}
+    },
+    {
+        "label": "events",
+        "importPath": "telethon",
+        "description": "telethon",
+        "isExtraImport": true,
+        "detail": "telethon",
+        "documentation": {}
+    },
+    {
+        "label": "API_ID",
+        "kind": 5,
+        "importPath": "auth",
+        "description": "auth",
+        "peekOfCode": "API_ID = int(os.getenv('API_ID', '0'))\nAPI_HASH = os.getenv('API_HASH', '')\nprint(\"=== 텔레그램 사용자 인증 ===\")\nprint(\"전화번호와 인증 코드를 입력하여 로그인합니다.\")\nprint(\"이 과정은 최초 1회 또는 세션 만료 시에만 필요합니다.\\n\")\nwith TelegramClient('user_session', API_ID, API_HASH) as client:\n    client.start()\n    print(\"\\n✅ 인증 완료! user_session.session 파일이 생성되었습니다.\")\n    print(\"이제 'python main.py scan' 또는 'python main.py monitor'를 실행할 수 있습니다.\")",
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "API_HASH",
+        "kind": 5,
+        "importPath": "auth",
+        "description": "auth",
+        "peekOfCode": "API_HASH = os.getenv('API_HASH', '')\nprint(\"=== 텔레그램 사용자 인증 ===\")\nprint(\"전화번호와 인증 코드를 입력하여 로그인합니다.\")\nprint(\"이 과정은 최초 1회 또는 세션 만료 시에만 필요합니다.\\n\")\nwith TelegramClient('user_session', API_ID, API_HASH) as client:\n    client.start()\n    print(\"\\n✅ 인증 완료! user_session.session 파일이 생성되었습니다.\")\n    print(\"이제 'python main.py scan' 또는 'python main.py monitor'를 실행할 수 있습니다.\")",
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "API_ID",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "API_ID = int(os.getenv('API_ID', '0'))\nAPI_HASH = os.getenv('API_HASH', '')\nBOT_TOKEN = os.getenv('BOT_TOKEN', '')\nSOURCE_CHANNEL_ID = int(os.getenv('SOURCE_CHANNEL_ID', '0'))\nTARGET_CHANNEL_ID = int(os.getenv('TARGET_CHANNEL_ID', '0'))\nKEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------\n# 사용자 계정 클라이언트 (감시용)\nuser_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "API_HASH",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "API_HASH = os.getenv('API_HASH', '')\nBOT_TOKEN = os.getenv('BOT_TOKEN', '')\nSOURCE_CHANNEL_ID = int(os.getenv('SOURCE_CHANNEL_ID', '0'))\nTARGET_CHANNEL_ID = int(os.getenv('TARGET_CHANNEL_ID', '0'))\nKEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------\n# 사용자 계정 클라이언트 (감시용)\nuser_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)\nbot_client = TelegramClient('bot_session', API_ID, API_HASH)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "BOT_TOKEN",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "BOT_TOKEN = os.getenv('BOT_TOKEN', '')\nSOURCE_CHANNEL_ID = int(os.getenv('SOURCE_CHANNEL_ID', '0'))\nTARGET_CHANNEL_ID = int(os.getenv('TARGET_CHANNEL_ID', '0'))\nKEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------\n# 사용자 계정 클라이언트 (감시용)\nuser_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)\nbot_client = TelegramClient('bot_session', API_ID, API_HASH)\nasync def send_notification(message_text: str, message_date: datetime, chat_id: int, message_id: int, mode: str) -> None:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "SOURCE_CHANNEL_ID",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "SOURCE_CHANNEL_ID = int(os.getenv('SOURCE_CHANNEL_ID', '0'))\nTARGET_CHANNEL_ID = int(os.getenv('TARGET_CHANNEL_ID', '0'))\nKEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------\n# 사용자 계정 클라이언트 (감시용)\nuser_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)\nbot_client = TelegramClient('bot_session', API_ID, API_HASH)\nasync def send_notification(message_text: str, message_date: datetime, chat_id: int, message_id: int, mode: str) -> None:\n    \"\"\"키워드가 포함된 메시지를 봇을 통해 알림 채널로 전송합니다.\"\"\"",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "TARGET_CHANNEL_ID",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "TARGET_CHANNEL_ID = int(os.getenv('TARGET_CHANNEL_ID', '0'))\nKEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------\n# 사용자 계정 클라이언트 (감시용)\nuser_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)\nbot_client = TelegramClient('bot_session', API_ID, API_HASH)\nasync def send_notification(message_text: str, message_date: datetime, chat_id: int, message_id: int, mode: str) -> None:\n    \"\"\"키워드가 포함된 메시지를 봇을 통해 알림 채널로 전송합니다.\"\"\"\n    link_chat_id = chat_id",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "KEYWORDS",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "KEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------\n# 사용자 계정 클라이언트 (감시용)\nuser_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)\nbot_client = TelegramClient('bot_session', API_ID, API_HASH)\nasync def send_notification(message_text: str, message_date: datetime, chat_id: int, message_id: int, mode: str) -> None:\n    \"\"\"키워드가 포함된 메시지를 봇을 통해 알림 채널로 전송합니다.\"\"\"\n    link_chat_id = chat_id\n    if str(link_chat_id).startswith('-100'):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "user_client",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "user_client = TelegramClient('user_session', API_ID, API_HASH)\n# 봇 클라이언트 (알림용)\nbot_client = TelegramClient('bot_session', API_ID, API_HASH)\nasync def send_notification(message_text: str, message_date: datetime, chat_id: int, message_id: int, mode: str) -> None:\n    \"\"\"키워드가 포함된 메시지를 봇을 통해 알림 채널로 전송합니다.\"\"\"\n    link_chat_id = chat_id\n    if str(link_chat_id).startswith('-100'):\n        link_chat_id = int(str(link_chat_id)[4:])\n    mode_label = \"📅 과거 검색\" if mode == \"scan\" else \"🔴 실시간 감지\"\n    found_keywords = [kw for kw in KEYWORDS if kw.lower() in message_text.lower()]",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "bot_client",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "bot_client = TelegramClient('bot_session', API_ID, API_HASH)\nasync def send_notification(message_text: str, message_date: datetime, chat_id: int, message_id: int, mode: str) -> None:\n    \"\"\"키워드가 포함된 메시지를 봇을 통해 알림 채널로 전송합니다.\"\"\"\n    link_chat_id = chat_id\n    if str(link_chat_id).startswith('-100'):\n        link_chat_id = int(str(link_chat_id)[4:])\n    mode_label = \"📅 과거 검색\" if mode == \"scan\" else \"🔴 실시간 감지\"\n    found_keywords = [kw for kw in KEYWORDS if kw.lower() in message_text.lower()]\n    notification = (\n        f\"🔔 키워드 알림 ({mode_label}) 🔔\\n\\n\"",
+        "detail": "main",
+        "documentation": {}
+    }
+]
