@@ -14,3 +14,7 @@ __pycache__/
 
 # nohup 로그
 nohup.out
+
+# 로그 파일
+logs/
+!logs/.gitkeep

@@ -2,6 +2,7 @@ import asyncio
 import argparse
 import os
 import logging
+from logging.handlers import TimedRotatingFileHandler
 from datetime import datetime, timedelta, timezone
 from telethon import TelegramClient, events
 from dotenv import load_dotenv
@@ -10,8 +11,28 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # 로깅 설정
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.INFO)
+LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')
+os.makedirs(LOG_DIR, exist_ok=True)
+
+_log_format = '[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
+_formatter = logging.Formatter(_log_format)
+
+# 콘솔 핸들러
+_console_handler = logging.StreamHandler()
+_console_handler.setFormatter(_formatter)
+
+# 파일 핸들러 (자정마다 새 파일로 교체, 최대 30일치 보관)
+_file_handler = TimedRotatingFileHandler(
+    filename=os.path.join(LOG_DIR, 'telebot.log'),
+    when='midnight',
+    interval=1,
+    backupCount=30,
+    encoding='utf-8',
+)
+_file_handler.setFormatter(_formatter)
+_file_handler.suffix = '%Y-%m-%d'  # 예: telebot.log.2026-02-22
+
+logging.basicConfig(level=logging.INFO, handlers=[_console_handler, _file_handler])
 
 # --- .env 파일에서 설정값 불러오기 ---
 API_ID = int(os.getenv('API_ID', '0'))

@@ -60,6 +60,14 @@
         "documentation": {}
     },
     {
+        "label": "TimedRotatingFileHandler",
+        "importPath": "logging.handlers",
+        "description": "logging.handlers",
+        "isExtraImport": true,
+        "detail": "logging.handlers",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
@@ -115,6 +123,60 @@
         "description": "auth",
         "peekOfCode": "API_HASH = os.getenv('API_HASH', '')\nprint(\"=== 텔레그램 사용자 인증 ===\")\nprint(\"전화번호와 인증 코드를 입력하여 로그인합니다.\")\nprint(\"이 과정은 최초 1회 또는 세션 만료 시에만 필요합니다.\\n\")\nwith TelegramClient('user_session', API_ID, API_HASH) as client:\n    client.start()\n    print(\"\\n✅ 인증 완료! user_session.session 파일이 생성되었습니다.\")\n    print(\"이제 'python main.py scan' 또는 'python main.py monitor'를 실행할 수 있습니다.\")",
         "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "LOG_DIR",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "LOG_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'logs')\nos.makedirs(LOG_DIR, exist_ok=True)\n_log_format = '[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'\n_formatter = logging.Formatter(_log_format)\n# 콘솔 핸들러\n_console_handler = logging.StreamHandler()\n_console_handler.setFormatter(_formatter)\n# 파일 핸들러 (자정마다 새 파일로 교체, 최대 30일치 보관)\n_file_handler = TimedRotatingFileHandler(\n    filename=os.path.join(LOG_DIR, 'telebot.log'),",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "_log_format",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "_log_format = '[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'\n_formatter = logging.Formatter(_log_format)\n# 콘솔 핸들러\n_console_handler = logging.StreamHandler()\n_console_handler.setFormatter(_formatter)\n# 파일 핸들러 (자정마다 새 파일로 교체, 최대 30일치 보관)\n_file_handler = TimedRotatingFileHandler(\n    filename=os.path.join(LOG_DIR, 'telebot.log'),\n    when='midnight',\n    interval=1,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "_formatter",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "_formatter = logging.Formatter(_log_format)\n# 콘솔 핸들러\n_console_handler = logging.StreamHandler()\n_console_handler.setFormatter(_formatter)\n# 파일 핸들러 (자정마다 새 파일로 교체, 최대 30일치 보관)\n_file_handler = TimedRotatingFileHandler(\n    filename=os.path.join(LOG_DIR, 'telebot.log'),\n    when='midnight',\n    interval=1,\n    backupCount=30,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "_console_handler",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "_console_handler = logging.StreamHandler()\n_console_handler.setFormatter(_formatter)\n# 파일 핸들러 (자정마다 새 파일로 교체, 최대 30일치 보관)\n_file_handler = TimedRotatingFileHandler(\n    filename=os.path.join(LOG_DIR, 'telebot.log'),\n    when='midnight',\n    interval=1,\n    backupCount=30,\n    encoding='utf-8',\n)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "_file_handler",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "_file_handler = TimedRotatingFileHandler(\n    filename=os.path.join(LOG_DIR, 'telebot.log'),\n    when='midnight',\n    interval=1,\n    backupCount=30,\n    encoding='utf-8',\n)\n_file_handler.setFormatter(_formatter)\n_file_handler.suffix = '%Y-%m-%d'  # 예: telebot.log.2026-02-22\nlogging.basicConfig(level=logging.INFO, handlers=[_console_handler, _file_handler])",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "_file_handler.suffix",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "_file_handler.suffix = '%Y-%m-%d'  # 예: telebot.log.2026-02-22\nlogging.basicConfig(level=logging.INFO, handlers=[_console_handler, _file_handler])\n# --- .env 파일에서 설정값 불러오기 ---\nAPI_ID = int(os.getenv('API_ID', '0'))\nAPI_HASH = os.getenv('API_HASH', '')\nBOT_TOKEN = os.getenv('BOT_TOKEN', '')\nSOURCE_CHANNEL_ID = int(os.getenv('SOURCE_CHANNEL_ID', '0'))\nTARGET_CHANNEL_ID = int(os.getenv('TARGET_CHANNEL_ID', '0'))\nKEYWORDS = [kw.strip() for kw in os.getenv('KEYWORDS', '').split(',')]\n# ------------------------------------",
+        "detail": "main",
         "documentation": {}
     },
     {
